@@ -6,9 +6,9 @@
     <input
       id="input"
       class="input__inp"
-      :type="props.type"
-      :placeholder="props.placeholder"
-      :value="props.value"
+      :type="type"
+      :placeholder="placeholder"
+      :value="value"
       :checked="props.boxChecked"
       @change="$emit('toggleCheckBox')"
       @input="$emit('update:value', $event.target.value)"

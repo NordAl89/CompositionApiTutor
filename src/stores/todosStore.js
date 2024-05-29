@@ -1,7 +1,9 @@
 import { defineStore } from 'pinia'
-import { ref, onMounted} from 'vue'
+import { ref, } from 'vue'
 
 export const useTodoItemsStore = defineStore('todos', () => {
+
+
 	const todos = ref([]);
 
 	function addTodo(todoBody) {
@@ -43,12 +45,13 @@ export const useTodoItemsStore = defineStore('todos', () => {
 
 	}
 
-	onMounted(() => {
+	function fetchLocalTodos(){
 		const savedTodos = localStorage.getItem('todos');
 		if (savedTodos) {
 			todos.value = JSON.parse(savedTodos);
 		}
-	});
+	}
+	fetchLocalTodos();
 
 	return { todos, addTodo, removeTodo, updateTodoCheckbox, editTodoItem };
 });
